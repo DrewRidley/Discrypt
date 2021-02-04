@@ -103,6 +103,7 @@ module.exports = class DisCrypt extends Plugin {
 
             return args;
 
+            //Useless comment here.
 
         }, true);
         MessageContent.type.displayName = "MessageContent";
