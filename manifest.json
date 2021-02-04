@@ -1,6 +1,6 @@
 {
     "name": "DisCrypt",
-    "version": "0.1.3",
+    "version": "1.0.1",
     "description": "Adds an optional way to encrypt messages sent in a specific channel.",
     "author": "DrewDaPilot#3675",
     "license": "MIT"
