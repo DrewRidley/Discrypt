@@ -18,7 +18,8 @@ class SettingsModal extends React.Component {
             this.state = {
                 secret: '',
                 decrypt: false,
-                encrypt: true
+                encrypt: true,
+                endToEnd: false
             }
         }
 
@@ -47,6 +48,9 @@ class SettingsModal extends React.Component {
                     </TextAreaInput>
                     <SwitchItem note="Automatically decrypts inbound messages." value={this.state.decrypt} onChange={async (m) => { await this.setState({decrypt: m}); }}>
                     Automatic decryption
+                    </SwitchItem>
+                    <SwitchItem note="Use end-to-end encryption. NOTE: this means that anyone with the plugin who has access to the channel can view sent messages." value={this.state.endToEnd} onChange={async (m) => { await this.setState({endToEnd: m}); }}>
+                    End-to-end encryption
                     </SwitchItem>
                 </Modal.Content>
                 <Modal.Footer>
