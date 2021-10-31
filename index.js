@@ -90,14 +90,16 @@ module.exports = class DisCrypt extends Plugin {
                 //Now, try to effficiently evaluate whether the message is encrypted.
                 if(args[0].message.content.startsWith("discrypt-"))
                 {
-                    //A standard aes256 encrypted message is present.
-                    let decrypted = aes256.decrypt(chn.secret, args[0].message.content.replace("discrypt-", "")) + " (🔒)";
-                    args[0].message.content = decrypted;
-                    args[0].content[0] = decrypted;
-                    FluxDispatcher.dirtyDispatch({
-                        type: 'MESSAGE_UPDATE',
-                        message: args[0].message
-                    });
+                    try {
+                        //A standard aes256 encrypted message is present.
+                        let decrypted = aes256.decrypt(chn.secret, args[0].message.content.replace("discrypt-", "")) + " (🔒)";
+                        args[0].message.content = decrypted;
+                        args[0].content[0] = decrypted;
+                        FluxDispatcher.dirtyDispatch({
+                            type: 'MESSAGE_UPDATE',
+                            message: args[0].message
+                        });
+		    } catch { }
                 }
             }
 
